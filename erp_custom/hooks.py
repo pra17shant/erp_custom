@@ -29,7 +29,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+# doctype_js = {"Supplier" : "public/js/doctypejs/addressimport.js"    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -102,13 +102,21 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+
+    # ~~~~~~~~~~~~~~~~ Supplier Import Hook ~~~~~~~~~~~~~~~~~~~~~~
+	"Supplier": {
+		"after_insert": [
+            "erp_custom.overrides.bank_insert.upload_supplier_bank",        #   ~~~~~~ Upload Bank Details
+            "erp_custom.overrides.address_insert.upload_supplier_address"   # ~~~~~~ Upload Address
+        ]},
+    "Customer":{
+        "after_insert": [
+            "erp_custom.overrides.bank_insert.upload_customer_bank",        #   ~~~~~~ Upload Bank Details
+            "erp_custom.overrides.address_insert.upload_customer_address"   # ~~~~~~ Upload Address
+        ]}
+}
+
 
 # Scheduled Tasks
 # ---------------
@@ -190,3 +198,43 @@ app_license = "MIT"
 # auth_hooks = [
 #	"erp_custom.auth.validate"
 # ]
+fixtures = [{"dt": "Custom Field", "filters": [
+        [
+            "name", "in", 
+            [
+                "Supplier-erp_custom",
+                "Supplier-address_details",
+                "Supplier-erpcust_address_type",
+                "Supplier-erpcust_address_line1",
+                "Supplier-erpcust_city",
+                "Supplier-cb",
+                "Supplier-erpcust_state",
+                "Supplier-erpcust_pincode",
+                "Supplier-erpcust_phone",
+                "Supplier-bank_details",
+                "Supplier-account_name",
+                "Supplier-bank_name",
+                "Supplier-cb2",
+                "Supplier-branch_code",
+                "Supplier-bank_account_no",
+                
+                "Customer-erp_custom",
+                "Customer-address_details",
+                "Customer-erpcust_address_type",
+                "Customer-erpcust_address_line1",
+                "Customer-erpcust_city",
+                "Customer-cb",
+                "Customer-erpcust_state",
+                "Customer-erpcust_pincode",
+                "Customer-erpcust_country",
+                "Customer-erpcust_phone",
+                "Customer-bank_details",
+                "Customer-account_name",
+                "Customer-bank_name",
+                "Customer-cb2",
+                "Customer-branch_code",
+                "Customer-bank_account_no",
+            ]
+        ]
+    ]},
+]
