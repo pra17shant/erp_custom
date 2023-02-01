@@ -102,17 +102,22 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
+# ~~~~~~~~~~~~~~~~ BOM Doctype Client Script Hook ~~~~~~~~~~~~~~~~~~~~~~
+doctype_js = {
+	"BOM":"public/js/doctypejs/bomdt.js" # BOM Item Filter Based on Finish Good Hook
+}
+
 doc_events = {
 
-    # ~~~~~~~~~~~~~~~~ Supplier Import Hook ~~~~~~~~~~~~~~~~~~~~~~
+    # ~~~~~~~~~~~~~~~~ Supplier/Customer Import Hook ~~~~~~~~~~~~~~~~~~~~~~
 	"Supplier": {
 		"after_insert": [
-            "erp_custom.overrides.bank_insert.upload_supplier_bank",        #   ~~~~~~ Upload Bank Details
+            "erp_custom.overrides.bank_insert.upload_supplier_bank",        # ~~~~~~ Upload Bank Details
             "erp_custom.overrides.address_insert.upload_supplier_address"   # ~~~~~~ Upload Address
         ]},
     "Customer":{
         "after_insert": [
-            "erp_custom.overrides.bank_insert.upload_customer_bank",        #   ~~~~~~ Upload Bank Details
+            "erp_custom.overrides.bank_insert.upload_customer_bank",        # ~~~~~~ Upload Bank Details
             "erp_custom.overrides.address_insert.upload_customer_address"   # ~~~~~~ Upload Address
         ]}
 }

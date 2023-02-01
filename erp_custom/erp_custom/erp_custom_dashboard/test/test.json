@@ -1,0 +1,52 @@
+{
+ "cards": [
+  {
+   "card": "Annual Purchase"
+  },
+  {
+   "card": "Purchase Orders to Receive"
+  },
+  {
+   "card": "Purchase Orders to Bill"
+  },
+  {
+   "card": "Annual Sales"
+  },
+  {
+   "card": "Sales Orders to Deliver"
+  },
+  {
+   "card": "Sales Orders to Bill"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Purchase Order Trends",
+   "width": "Half"
+  },
+  {
+   "chart": "Top Suppliers",
+   "width": "Half"
+  },
+  {
+   "chart": "Sales Order Trends",
+   "width": "Half"
+  },
+  {
+   "chart": "Top Customers",
+   "width": "Half"
+  }
+ ],
+ "creation": "2023-01-24 17:35:33.901355",
+ "dashboard_name": "Test",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2023-01-24 17:36:45.537290",
+ "modified_by": "Administrator",
+ "module": "ERP Custom",
+ "name": "Test",
+ "owner": "Administrator"
+}
