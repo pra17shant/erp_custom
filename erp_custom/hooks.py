@@ -207,6 +207,8 @@ fixtures = [{"dt": "Custom Field", "filters": [
         [
             "name", "in", 
             [
+                "Item-old_erp_item_code",
+
                 "Supplier-erp_custom",
                 "Supplier-address_details",
                 "Supplier-erpcust_address_type",
